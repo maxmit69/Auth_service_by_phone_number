@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify</title>
+</head>
+<body>
+    <h1>Верификация</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <label for="code">Код подтверждения:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Подтвердить</button>
+    </form>
+    <h2>Сообщение:</h2>
+        <ul>
+            {% if messages %}
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+</body>
+</html>
