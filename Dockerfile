@@ -25,6 +25,3 @@ RUN poetry config virtualenvs.create false && poetry install --no-root
 
 # Копируем код
 COPY . .
-
-# Применяем миграции и запускаем сервер
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]

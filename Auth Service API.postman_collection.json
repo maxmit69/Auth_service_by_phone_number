@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "82a8447c-a07a-4dfb-bed0-20f4f9cc660b",
+		"name": "Auth Service API",
+		"description": "Реферальная система, которая позволяет пользователям регистрироваться и авторизовываться по номеру телефона, а также использовать и распространять инвайт-коды.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36194511"
+	},
+	"item": [
+		{
+			"name": "register user1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"+79126547865\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/register/",
+				"description": "Регистрация или авторизация user1"
+			},
+			"response": []
+		},
+		{
+			"name": "register user2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"+79437642385\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/register/",
+				"description": "Регистрация или авторизация user2"
+			},
+			"response": []
+		},
+		{
+			"name": "verify/user1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone_number\": \"+79126547865\",\n  \"code\": \"8444\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/verify/"
+			},
+			"response": []
+		},
+		{
+			"name": "profile/user1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMDcwODczLCJpYXQiOjE3MjMwNzA1NzMsImp0aSI6IjE1YmU2MzhmN2FlZTRjMmM4N2M5NjU2Y2NmYTMyOThlIiwidXNlcl9pZCI6Ijg1YmQ1YWVkLTM0ZGUtNDYzYS1hYjRkLTNhZTQ3YWM3MTc0ZiJ9.wfP9rcLL9XiWorH7g1mBDRbc_ueaO5Z88qdmtV9PIaQ",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/profile/85bd5aed-34de-463a-ab4d-3ae47ac7174f/"
+			},
+			"response": []
+		},
+		{
+			"name": "verify/user2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone_number\": \"+79437642385\",\n  \"code\": \"7152\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/verify/"
+			},
+			"response": []
+		},
+		{
+			"name": "profile/user2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMDcxMjIxLCJpYXQiOjE3MjMwNzA5MjEsImp0aSI6ImQyYTMzNmRjMDU3NjRjYTJhMjI2NzdiYjM4YWIwM2MwIiwidXNlcl9pZCI6IjE4NTI4YmJjLTZiY2UtNGVmNi05ZDFlLTZiOGM4ZmZkZmY2YSJ9.qREJe-IshNwhXAxs2aokGMXl9iFKMIHBoA6yfaH-gyU",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/profile/18528bbc-6bce-4ef6-9d1e-6b8c8ffdff6a/"
+			},
+			"response": []
+		},
+		{
+			"name": "profile/user2 used_invite_code profile/user1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMDcxMjIxLCJpYXQiOjE3MjMwNzA5MjEsImp0aSI6ImQyYTMzNmRjMDU3NjRjYTJhMjI2NzdiYjM4YWIwM2MwIiwidXNlcl9pZCI6IjE4NTI4YmJjLTZiY2UtNGVmNi05ZDFlLTZiOGM4ZmZkZmY2YSJ9.qREJe-IshNwhXAxs2aokGMXl9iFKMIHBoA6yfaH-gyU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"used_invite_code\": \"mpmiIa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/profile/18528bbc-6bce-4ef6-9d1e-6b8c8ffdff6a/"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://127.0.0.1:8000/",
+			"type": "string"
+		}
+	]
+}
